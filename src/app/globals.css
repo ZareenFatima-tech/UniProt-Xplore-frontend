@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark Teal Scientific Color System */
+  --color-bg: #0B2B26;
+  --color-bg-elevated: #0F3A33;
+  --color-text-primary: #263238;
+  --color-text-secondary: #4A6572;
+  --color-text-on-dark: #E3E9E8;
+  --color-accent-cyan: #4FD1C5;
+  --color-border: rgba(74, 101, 114, 0.35);
+  --color-danger: #F87171;
+
+  /* Aliases for core layout styles */
+  --background: var(--color-bg);
+  --background-secondary: var(--color-bg-elevated);
+  --surface: var(--color-bg-elevated);
+  --text-primary: var(--color-text-on-dark);
+  --text-secondary: #90A4AE;
+  --accent-primary: var(--color-accent-cyan);
+  --accent-secondary: #38B2AC;
+  --border: var(--color-border);
+  --danger: var(--color-danger);
+
+  /* Fluid Typography Scale */
+  --font-size-h1: clamp(2.25rem, 1.4rem + 3vw, 4.25rem);
+  --font-size-h2: clamp(1.5rem, 1.2rem + 1.6vw, 2.75rem);
+  --font-size-body: clamp(0.95rem, 0.9rem + 0.25vw, 1.125rem);
+
+  /* Spacing Scale System */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2.5rem;   /* 40px */
+  --space-xl: 4rem;     /* 64px */
+  --space-2xl: 6rem;    /* 96px */
+
+  /* Safe Area Insets */
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+}
+
+@theme {
+  --color-bg: var(--color-bg);
+  --color-bg-elevated: var(--color-bg-elevated);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-on-dark: var(--color-text-on-dark);
+  --color-accent-cyan: var(--color-accent-cyan);
+  --color-border: var(--color-border);
+  --color-danger: var(--color-danger);
+
+  --color-background: var(--color-bg);
+  --color-background-secondary: var(--color-bg-elevated);
+  --color-surface: var(--color-bg-elevated);
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-display: var(--font-outfit), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+}
+
+/* Global Typography & Font Smooth Rendering */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-on-dark);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Standard Cross-Browser Fallback Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) var(--color-bg);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-cyan);
+}
+
+/* Glassmorphism Card Styles for Dark Teal Theme */
+.glass-panel {
+  background: rgba(15, 58, 51, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border);
+}
+
+/* Prevent iOS Safari Auto-Zoom on Form Focus */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
