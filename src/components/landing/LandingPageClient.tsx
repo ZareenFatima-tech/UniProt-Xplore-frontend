@@ -8,7 +8,6 @@ import HeroContent from './HeroContent';
 import WhyDifferentSection from './WhyDifferentSection';
 import HowItWorksContent from './HowItWorksContent';
 import ResearchApplications from './ResearchApplications';
-import IntegrationMarquee from './IntegrationMarquee';
 import Pricing from './Pricing';
 import FinalCTA from './FinalCTA';
 import { ReducedMotionProvider } from '../../hooks/useReducedMotion';
@@ -30,7 +29,7 @@ export const LandingPageClient: React.FC = () => {
         {/* 2. Platform Section: System Differentiation / UniProtXplore Uniqueness */}
         <WhyDifferentSection />
 
-        {/* 3. How It Works (Circular 8-Stage Workflow) */}
+        {/* 3. How It Works (Circular 8-Stage Workflow + Integrated Databases Grid) */}
         <section id="how-it-works" className="relative w-full">
           <HowItWorksContent />
         </section>
@@ -38,13 +37,10 @@ export const LandingPageClient: React.FC = () => {
         {/* 4. Research Applications (5-Line Paragraph + 8 Cards) */}
         <ResearchApplications />
 
-        {/* 5. Integration Marquee Trust Band (Authentic Database Logos) */}
-        <IntegrationMarquee />
-
-        {/* 6. Platform Pricing (3 Tiers: Free, Lab, Institution) */}
+        {/* 5. Platform Pricing (3 Tiers: Free, Lab, Institution) */}
         <Pricing />
 
-        {/* 7. Final CTA */}
+        {/* 6. Final CTA */}
         <FinalCTA />
 
         {/* Navigation Footer */}
