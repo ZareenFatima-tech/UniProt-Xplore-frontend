@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import HeroBackgroundMedia from './HeroBackgroundMedia';
 import HeroContent from './HeroContent';
+import WhatIsSection from './WhatIsSection';
 import WhyDifferentSection from './WhyDifferentSection';
 import HowItWorksContent from './HowItWorksContent';
 import ResearchApplications from './ResearchApplications';
@@ -26,21 +27,24 @@ export const LandingPageClient: React.FC = () => {
           <HeroContent />
         </section>
 
-        {/* 2. Platform Section: System Differentiation / UniProtXplore Uniqueness */}
+        {/* 2. What Is UniProtXplore Section Teaser */}
+        <WhatIsSection />
+
+        {/* 3. Platform Section: System Differentiation / Why UniProtXplore Is Different */}
         <WhyDifferentSection />
 
-        {/* 3. How It Works (Circular 8-Stage Workflow + Integrated Databases Grid) */}
+        {/* 4. How It Works (Circular 8-Stage Workflow) */}
         <section id="how-it-works" className="relative w-full">
           <HowItWorksContent />
         </section>
 
-        {/* 4. Research Applications (5-Line Paragraph + 8 Cards) */}
+        {/* 5. Research Applications */}
         <ResearchApplications />
 
-        {/* 5. Platform Pricing (3 Tiers: Free, Lab, Institution) */}
+        {/* 6. Platform Pricing (3 Tiers: Free, Lab, Institution) */}
         <Pricing />
 
-        {/* 6. Final CTA */}
+        {/* 7. Final CTA */}
         <FinalCTA />
 
         {/* Navigation Footer */}
