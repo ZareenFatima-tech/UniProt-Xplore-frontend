@@ -16,14 +16,26 @@ export const HeroBackgroundMedia: React.FC<HeroBackgroundMediaProps> = ({
   const reducedMotion = useReducedMotion();
 
   useEffect(() => {
-    if (reducedMotion) return;
+    if (reducedMotion || !videoRef.current) return;
+
+    const video = videoRef.current;
+    // Explicitly enforce muted DOM property to comply with browser autoplay policies
+    video.muted = true;
+    video.playsInline = true;
+
+    const playVideo = () => {
+      video.play().catch((err) => {
+        console.log('[Background Video Notice] Autoplay waiting for user interaction or stream buffering:', err);
+      });
+    };
+
+    playVideo();
 
     const handleVisibilityChange = () => {
-      if (!videoRef.current) return;
       if (document.visibilityState === 'visible') {
-        videoRef.current.play().catch(() => {});
+        playVideo();
       } else {
-        videoRef.current.pause();
+        video.pause();
       }
     };
 
@@ -36,12 +48,6 @@ export const HeroBackgroundMedia: React.FC<HeroBackgroundMediaProps> = ({
   if (reducedMotion) {
     return (
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden bg-[#0B2B26]">
-        <img
-          src={posterSrc}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-full object-cover opacity-40"
-        />
         <div className="absolute inset-0 bg-gradient-to-b from-[#0B2B26]/85 via-[#0B2B26]/70 to-[#0B2B26] z-10 pointer-events-none" />
       </div>
     );
@@ -55,15 +61,21 @@ export const HeroBackgroundMedia: React.FC<HeroBackgroundMediaProps> = ({
         muted
         loop
         playsInline
-        poster={posterSrc}
-        className="w-full h-full object-cover scale-105 filter brightness-90 contrast-105 transition-all duration-700"
+        preload="auto"
+        className="w-full h-full object-cover scale-105 filter brightness-90 contrast-105 transition-all duration-700 pointer-events-none"
         aria-hidden="true"
+        onCanPlay={() => {
+          if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play().catch(() => {});
+          }
+        }}
       >
         <source src={videoSrc} type="video/mp4" />
-        <source src="/hero-loop.mp4" type="video/mp4" />
+        <source src="/Uniprotdemo.mp4" type="video/mp4" />
       </video>
 
-      {/* Subtle dark-teal gradient scrim overlay ensuring WCAG AA readability */}
+      {/* Scrim overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0B2B26]/80 via-[#0B2B26]/60 to-[#0B2B26] z-10 pointer-events-none" />
     </div>
   );
