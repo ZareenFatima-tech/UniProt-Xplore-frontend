@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import InternationalPaymentModal from '../ui/InternationalPaymentModal';
 import InstitutionContactModal from '../ui/InstitutionContactModal';
+import SectionHeader from '../ui/SectionHeader';
 
 export const Pricing: React.FC = () => {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
@@ -13,31 +14,19 @@ export const Pricing: React.FC = () => {
     <section id="pricing" className="py-24 px-4 sm:px-6 lg:px-8 border-b border-[#4A6572]/35 bg-[#0B2B26]">
       <div className="max-w-6xl mx-auto flex flex-col gap-10">
         
-        {/* Category Label (Centered) */}
-        <div className="flex items-center justify-center gap-3">
-          <span className="h-[1px] w-8 bg-[#4FD1C5]" />
-          <span className="text-xs font-mono uppercase tracking-widest text-[#4FD1C5]">
-            Subscription Rates
-          </span>
-          <span className="h-[1px] w-8 bg-[#4FD1C5]" />
-        </div>
-
-        {/* Headline (Centered) */}
-        <div className="flex flex-col gap-3 text-center items-center">
-          <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight text-[#E3E9E8]">
-            Platform Pricing
-          </h2>
-          <p className="text-sm md:text-base text-[#E3E9E8]/80 leading-relaxed max-w-xl">
-            Choose the workspace scale that fits your laboratory size. Start analyzing proteins in minutes.
-          </p>
-        </div>
+        {/* Shared Section Header */}
+        <SectionHeader
+          eyebrow="SUBSCRIPTION RATES"
+          title="Platform Pricing"
+          subheading="Choose the workspace scale that fits your laboratory size. Start analyzing proteins in minutes."
+        />
 
         {/* 3 Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-4">
           
           {/* Tier 1: Free — Researcher Starter */}
           <div className="p-6 sm:p-8 rounded-2xl bg-[#0F3A33] border border-[#4A6572]/35 flex flex-col justify-between gap-6 hover:border-[#4FD1C5]/40 transition-all duration-300">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 text-left">
               <div className="flex flex-col gap-1">
                 <span className="text-xs font-mono text-[#4FD1C5] uppercase tracking-wider">Tier 01</span>
                 <h3 className="text-xl font-display font-bold text-[#E3E9E8]">Free Trial</h3>
@@ -80,7 +69,7 @@ export const Pricing: React.FC = () => {
               Most Popular
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 text-left">
               <div className="flex flex-col gap-1">
                 <span className="text-xs font-mono text-[#4FD1C5] uppercase tracking-wider">Tier 02</span>
                 <h3 className="text-xl font-display font-bold text-[#E3E9E8]">Lab Plan</h3>
@@ -118,7 +107,7 @@ export const Pricing: React.FC = () => {
 
           {/* Tier 3: Institution — Team & Lab License */}
           <div className="p-6 sm:p-8 rounded-2xl bg-[#0F3A33] border border-[#4A6572]/35 flex flex-col justify-between gap-6 hover:border-[#4FD1C5]/40 transition-all duration-300">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 text-left">
               <div className="flex flex-col gap-1">
                 <span className="text-xs font-mono text-[#4FD1C5] uppercase tracking-wider">Tier 03</span>
                 <h3 className="text-xl font-display font-bold text-[#E3E9E8]">Institution</h3>

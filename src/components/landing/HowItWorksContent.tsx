@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import SectionHeader from '../ui/SectionHeader';
 
 const agentStages = [
   { id: 0, num: '01', title: 'Research Question', agent: 'Planner Agent', desc: 'Initializes query interface & decomposes target biological objectives.' },
@@ -50,28 +51,12 @@ export const HowItWorksContent: React.FC = () => {
   return (
     <div className="py-20 px-6 max-w-6xl mx-auto flex flex-col items-center gap-10 bg-[#0B2B26] border-b border-[#4A6572]/35">
       
-      {/* 1. Header */}
-      <div className="flex flex-col items-center gap-4 text-center max-w-3xl">
-        <div className="flex items-center gap-3">
-          <span className="h-[1px] w-8 bg-[#4FD1C5]" />
-          <span className="text-xs font-mono uppercase tracking-widest text-[#4FD1C5] font-bold">
-            Ecosystem Pipeline
-          </span>
-          <span className="h-[1px] w-8 bg-[#4FD1C5]" />
-        </div>
-
-        {/* Title */}
-        <h2 className="text-3xl md:text-5xl font-display font-extrabold tracking-tight text-[#E3E9E8]">
-          From accession number to scientific report — no tab-switching.
-        </h2>
-
-        {/* Subtitle */}
-        <div className="w-full max-w-2xl p-5 rounded-xl bg-[#0F3A33]/50 border border-[#4A6572]/30 text-left">
-          <p className="text-xs md:text-sm text-[#E3E9E8]/90 leading-relaxed font-sans">
-            Watch what happens the moment you submit a UniProt ID. Every stage below is a real step in the pipeline, not a marketing diagram — scroll to see each agent activate in sequence.
-          </p>
-        </div>
-      </div>
+      {/* 1. Shared Section Header */}
+      <SectionHeader
+        eyebrow="ECOSYSTEM PIPELINE"
+        title="From accession number to scientific report — no tab-switching."
+        subheading="Watch what happens the moment you submit a UniProt ID. Every stage below is a real step in the pipeline, not a marketing diagram — scroll to see each agent activate in sequence."
+      />
 
       {/* 2. Single-Screen Neural Network View (DESKTOP & MOBILE) */}
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-10 my-4">

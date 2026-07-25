@@ -5,7 +5,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import HeroBackgroundMedia from './HeroBackgroundMedia';
 import HeroContent from './HeroContent';
-import WhatIsSection from './WhatIsSection';
+import MultiAgentArchitecture from './MultiAgentArchitecture';
 import WhyDifferentSection from './WhyDifferentSection';
 import HowItWorksContent from './HowItWorksContent';
 import ResearchApplications from './ResearchApplications';
@@ -21,16 +21,16 @@ export const LandingPageClient: React.FC = () => {
         {/* Navigation bar */}
         <Navbar />
 
-        {/* 1. Hero Zone (Looping MP4 Media Background + Scrim + DOM Overlay with System Introduction) */}
+        {/* 1. Hero Zone (Headline + Two Buttons: Sign In 1st, Get Started 2nd) */}
         <section className="relative w-full min-h-[88vh] flex items-center justify-center border-b border-[#4A6572]/35 overflow-hidden">
           <HeroBackgroundMedia videoSrc="/Uniprotdemo.mp4" posterSrc="/hero-poster.jpg" />
           <HeroContent />
         </section>
 
-        {/* 2. What Is UniProtXplore Section Teaser */}
-        <WhatIsSection />
+        {/* 2. Multi-Agent Pipeline Architecture Section */}
+        <MultiAgentArchitecture />
 
-        {/* 3. Platform Section: System Differentiation / Why UniProtXplore Is Different */}
+        {/* 3. System Differentiation / Why UniProtXplore Is Different */}
         <WhyDifferentSection />
 
         {/* 4. How It Works (Circular 8-Stage Workflow) */}
