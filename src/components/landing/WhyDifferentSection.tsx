@@ -1,73 +1,96 @@
 'use client';
 
 import React from 'react';
-import { ExternalLink } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 
-export interface TrustedDatabaseCard {
+export interface DatabaseButton {
   id: string;
-  num: string;
   name: string;
-  desc: string;
   href: string;
   ariaLabel: string;
+  svgIcon: React.ReactNode;
 }
 
-export const trustedDatabases: TrustedDatabaseCard[] = [
+export const databaseButtons: DatabaseButton[] = [
   {
     id: 'uniprot',
-    num: '01',
     name: 'UniProt',
-    desc: 'Curated protein sequence & functional annotation',
     href: 'https://www.uniprot.org',
-    ariaLabel: 'Open UniProt in a new tab'
+    ariaLabel: 'Open UniProt website in a new tab',
+    svgIcon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg>
+    )
   },
   {
     id: 'pdbe',
-    num: '02',
     name: 'PDBe',
-    desc: 'Experimentally determined 3D structures',
     href: 'https://www.ebi.ac.uk/pdbe/',
-    ariaLabel: 'Open Protein Data Bank in Europe in a new tab'
+    ariaLabel: 'Open Protein Data Bank in Europe website in a new tab',
+    svgIcon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+        <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+        <line x1="12" y1="22.08" x2="12" y2="12" />
+      </svg>
+    )
   },
   {
     id: 'alphafold',
-    num: '03',
     name: 'AlphaFold DB',
-    desc: 'AI-predicted protein structures',
     href: 'https://alphafold.ebi.ac.uk',
-    ariaLabel: 'Open AlphaFold DB in a new tab'
+    ariaLabel: 'Open AlphaFold Protein Structure Database in a new tab',
+    svgIcon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <circle cx="12" cy="11" r="3" fill="currentColor" opacity="0.3" />
+      </svg>
+    )
   },
   {
     id: 'chembl',
-    num: '04',
     name: 'ChEMBL',
-    desc: 'Bioactive molecules & drug discovery',
     href: 'https://www.ebi.ac.uk/chembl/',
-    ariaLabel: 'Open ChEMBL in a new tab'
+    ariaLabel: 'Open ChEMBL website in a new tab',
+    svgIcon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 2v7.31L4.75 19.9A2 2 0 0 0 6.5 23h11a2 2 0 0 0 1.75-3.1L14 9.31V2" />
+        <line x1="8.5" y1="2" x2="15.5" y2="2" />
+      </svg>
+    )
   },
   {
     id: 'drugbank',
-    num: '05',
     name: 'DrugBank',
-    desc: 'Drug & target information',
     href: 'https://go.drugbank.com',
-    ariaLabel: 'Open DrugBank in a new tab'
+    ariaLabel: 'Open DrugBank website in a new tab',
+    svgIcon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z" />
+        <line x1="8.5" y1="8.5" x2="15.5" y2="15.5" />
+      </svg>
+    )
   },
   {
     id: 'pubmed',
-    num: '06',
     name: 'PubMed',
-    desc: 'Biomedical literature citations',
     href: 'https://pubmed.ncbi.nlm.nih.gov',
-    ariaLabel: 'Open PubMed in a new tab'
+    ariaLabel: 'Open PubMed literature database in a new tab',
+    svgIcon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5z" />
+        <path d="M6 6h10" />
+        <path d="M6 10h10" />
+      </svg>
+    )
   }
 ];
 
 export const WhyDifferentSection: React.FC = () => {
   return (
     <section id="platform" className="py-24 px-4 sm:px-6 lg:px-8 border-b border-[#4A6572]/35 bg-[#0B2B26]">
-      <div className="max-w-6xl mx-auto flex flex-col gap-12">
+      <div className="max-w-5xl mx-auto flex flex-col gap-12">
         
         {/* Section Header (Centered) */}
         <SectionHeader
@@ -82,58 +105,30 @@ export const WhyDifferentSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Trusted Databases Section Header & Subtitle */}
-        <div className="flex flex-col items-center gap-3 pt-6 border-t border-[#4A6572]/30 text-center">
+        {/* Trusted Databases Section (6 Small UI/UX Buttons Strictly Aligned in Sequence) */}
+        <div className="flex flex-col items-center gap-4 pt-6 border-t border-[#4A6572]/30 text-center w-full">
           <span className="text-xs font-mono uppercase tracking-widest text-[#4FD1C5] font-bold">
             INTEGRATED DATA REPOSITORIES
           </span>
-          <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-[#E3E9E8]">
-            Trusted Databases
-          </h3>
-          <p className="text-xs sm:text-sm text-[#E3E9E8]/80 max-w-xl font-sans">
-            UniProtXplore synthesizes evidence from six authoritative biological and chemical repositories in real time.
-          </p>
-        </div>
 
-        {/* 6 Concise Database Cards Grid (Strict Sequence: UniProt -> PDBe -> AlphaFold DB -> ChEMBL -> DrugBank -> PubMed) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
-          {trustedDatabases.map((db) => (
-            <div
-              key={db.id}
-              className="p-6 rounded-2xl bg-[#0F3A33] border border-[#4A6572]/40 hover:border-[#4FD1C5] transition-all duration-300 flex flex-col justify-between gap-5 group shadow-lg shadow-[#0F3A33]/20 hover:shadow-[#4FD1C5]/10"
-            >
-              <div className="flex flex-col gap-3 text-left">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#4FD1C5] bg-[#0B2B26] px-2.5 py-1 rounded-full border border-[#4FD1C5]/30">
-                    {db.num}
-                  </span>
-                  <span className="text-[10px] font-mono text-[#E3E9E8]/50 uppercase tracking-widest">
-                    Verified Source
-                  </span>
-                </div>
-
-                <h4 className="text-lg font-display font-bold text-[#E3E9E8] group-hover:text-[#4FD1C5] transition-colors mt-1">
-                  {db.name}
-                </h4>
-
-                <p className="text-xs text-[#E3E9E8]/80 leading-relaxed font-sans min-h-[36px]">
-                  {db.desc}
-                </p>
-              </div>
-
-              {/* Clickable URL Button */}
+          {/* 6 Compact Buttons Aligned in Sequence (No public text URLs shown) */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-2 w-full">
+            {databaseButtons.map((btn) => (
               <a
-                href={db.href}
+                key={btn.id}
+                href={btn.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={db.ariaLabel}
-                className="w-full text-xs font-semibold bg-[#0B2B26] border border-[#4A6572]/40 text-[#E3E9E8] hover:bg-[#0F3A33] hover:border-[#4FD1C5] hover:text-[#4FD1C5] py-2.5 px-4 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] min-h-[40px] flex items-center justify-between group-hover:border-[#4FD1C5]/50"
+                aria-label={btn.ariaLabel}
+                className="px-4 py-2.5 rounded-full bg-[#0F3A33] border border-[#4A6572]/40 hover:border-[#4FD1C5] hover:bg-[#0B2B26] text-[#E3E9E8] hover:text-[#4FD1C5] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#4FD1C5] text-xs font-mono font-bold flex items-center gap-2.5 group shadow-md shadow-[#0F3A33]/30 min-h-[40px] cursor-pointer shrink-0"
               >
-                <span className="truncate font-mono">{db.href.replace('https://', '')}</span>
-                <ExternalLink size={14} className="shrink-0 text-[#4FD1C5]" />
+                <span className="text-[#4FD1C5] group-hover:scale-110 transition-transform">
+                  {btn.svgIcon}
+                </span>
+                <span>{btn.name}</span>
               </a>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
       </div>
