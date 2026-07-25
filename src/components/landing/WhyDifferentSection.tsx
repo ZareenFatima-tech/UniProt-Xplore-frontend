@@ -114,14 +114,14 @@ export const WhyDifferentSection: React.FC = () => {
 
         {/* Body Paragraph (Left-Aligned within Container) */}
         <div className="w-full max-w-4xl mx-auto p-6 sm:p-8 rounded-2xl bg-[#0F3A33]/70 border border-[#4A6572]/40 backdrop-blur-md text-left">
-          <p className="text-sm sm:text-base md:text-lg text-[#E3E9E8]/90 leading-relaxed font-sans">
+          <p className="text-body-lg text-[#E3E9E8]/90">
             UniProtKB, PDB, and AlphaFold are excellent at retrieval and terrible at context — none of them know what ChEMBL knows, or what last month's PubMed literature says. UniProtXplore's Insight Synthesis agent is the only thing in this entire chapter of bioinformatics tooling built specifically to reconcile all four domains into one interpretation, with a confidence score attached to it — not just a data table.
           </p>
         </div>
 
         {/* Trusted Databases Section Header */}
         <div className="flex flex-col items-center gap-4 pt-6 border-t border-[#4A6572]/30 text-center w-full">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#4FD1C5] font-bold">
+          <span className="text-body-sm font-mono uppercase tracking-widest text-[#4FD1C5] font-bold">
             INTEGRATED DATA REPOSITORIES
           </span>
 
@@ -146,12 +146,12 @@ export const WhyDifferentSection: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col gap-0.5 mt-1">
-                  <span className="font-display font-bold text-xs text-[#E3E9E8] group-hover:text-[#4FD1C5] transition-colors truncate">
+                  <span className="text-body-sm font-display font-bold text-[#E3E9E8] group-hover:text-[#4FD1C5] transition-colors truncate">
                     {btn.name}
                   </span>
 
                   {/* 1-Line Brief Description Directly Beneath Name */}
-                  <p className="text-[10px] text-[#E3E9E8]/75 font-sans leading-tight line-clamp-2">
+                  <p className="text-body-sm text-[#E3E9E8]/75 leading-tight line-clamp-2">
                     {btn.desc}
                   </p>
                 </div>

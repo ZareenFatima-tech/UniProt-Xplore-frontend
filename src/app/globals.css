@@ -22,11 +22,6 @@
   --border: var(--color-border);
   --danger: var(--color-danger);
 
-  /* Fluid Typography Scale */
-  --font-size-h1: clamp(2.25rem, 1.4rem + 3vw, 4.25rem);
-  --font-size-h2: clamp(1.5rem, 1.2rem + 1.6vw, 2.75rem);
-  --font-size-body: clamp(0.95rem, 0.9rem + 0.25vw, 1.125rem);
-
   /* Spacing Scale System */
   --space-xs: 0.5rem;   /* 8px */
   --space-sm: 1rem;     /* 16px */
@@ -59,59 +54,82 @@
   --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-/* Global Typography & Font Smooth Rendering */
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
+/* B2. Fixed Type Scale Utility Classes */
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 1.5rem + 3.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
 }
 
-body {
-  background-color: var(--color-bg);
-  color: var(--color-text-on-dark);
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  min-height: 100vh;
-  overflow-x: hidden;
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.15;
 }
 
-/* Standard Cross-Browser Fallback Scrollbars */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-border) var(--color-bg);
+.text-display-sm {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
 }
 
+.text-body-lg {
+  font-family: var(--font-sans);
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.text-body-sm {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.text-mono {
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: var(--color-bg);
+  background: #0B2B26;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: #0F3A33;
   border-radius: 4px;
+  border: 1px solid rgba(74, 101, 114, 0.3);
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-cyan);
+  background: #4FD1C5;
 }
 
-/* Glassmorphism Card Styles for Dark Teal Theme */
-.glass-panel {
-  background: rgba(15, 58, 51, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--color-border);
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Prevent iOS Safari Auto-Zoom on Form Focus */
-@media screen and (max-width: 768px) {
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="search"],
-  select,
-  textarea {
-    font-size: 16px !important;
-  }
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }

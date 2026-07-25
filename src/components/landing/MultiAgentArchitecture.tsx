@@ -27,7 +27,7 @@ export const MultiAgentArchitecture: React.FC = () => {
         <div className="w-full max-w-4xl mx-auto p-6 rounded-2xl bg-[#0B2B26]/80 border border-[#4A6572]/40 backdrop-blur-md">
           
           {/* Desktop & Tablet: Horizontal Divider-Separated Row */}
-          <div className="hidden md:flex items-center justify-between gap-4 font-mono text-xs sm:text-sm text-[#E3E9E8]/90 font-semibold">
+          <div className="hidden md:flex items-center justify-between gap-4 text-mono text-[#E3E9E8]/90">
             {agentsList.map((agent, idx) => (
               <React.Fragment key={agent}>
                 <span className="text-center px-2 hover:text-[#4FD1C5] transition-colors">
@@ -41,7 +41,7 @@ export const MultiAgentArchitecture: React.FC = () => {
           </div>
 
           {/* Mobile (<768px): Flexible Wrapping Pills */}
-          <div className="flex md:hidden flex-wrap items-center justify-center gap-2.5 font-mono text-xs text-[#E3E9E8]">
+          <div className="flex md:hidden flex-wrap items-center justify-center gap-2.5 text-mono text-xs text-[#E3E9E8]">
             {agentsList.map((agent) => (
               <span
                 key={agent}
